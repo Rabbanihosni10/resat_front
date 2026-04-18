@@ -6,19 +6,19 @@ def generate_pass(min_length,numbers=True,spec_char=True):
     digits=string.digits
     special=string.punctuation
 
-    print(letters,digits,special)
+    # print(letters,digits,special)
     charateres=letters
     if numbers:
         charateres+=digits
     if spec_char:
         charateres+=special
     pass_wd=""
-    meet_criteria=False    
+    meets_criteria=False    
     has_number=False
     has_spec_char=False
 
-    while not meet_criteria or len(pass_wd)<min_length:
-        new_char=random.choice(characters);
+    while not meets_criteria or len(pass_wd)<min_length:
+        new_char=random.choice(charateres)
         pass_wd+=new_char
 
         if new_char in digits:
@@ -41,4 +41,9 @@ def generate_pass(min_length,numbers=True,spec_char=True):
     # pass
 
 # generate_pass(10,False,False)
-generate_pass(10)
+min_length=int(input("Enter the minimum length of the password:"))
+has_number=input("Should the password contain numbers? (yes/no):").lower()=="yes"
+has_spec_char=input("Should the password contain special characters? (yes/no):").lower()=="yes"
+pwd= generate_pass(min_length,has_number,has_spec_char)
+print(f'Generated password: {pwd}')
+ 
