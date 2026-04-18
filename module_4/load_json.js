@@ -32,8 +32,32 @@
 // .then((response)=>respmse.json())
 // fetch('https://jsonplaceholder.typicode.com/todos/1')
 
-const loadData = ()=>{
+const loadData = () =>{
     fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response=>response.json())
     .then(data=>console.log(data));
 };
+
+const loadPosts = () =>{
+    const url= "https://jsonplaceholder.typicode.com/posts";
+    fetch(url)
+    //promise to give me responses from fetch
+    .then((res)=>res.json())
+    //promise to give me json data
+    // .then((json)=>displayPost(json));
+    .then((json)=>{
+        console.log(json)
+        displayPost(json) 
+        });
+    // .then()
+    // fetch('https://jsonplaceholder.typicode.com/posts')
+    // .then(res=>res.json())
+    // .then((data)=>console.log(data));
+}
+
+const displayPost=(posts)=>{
+    // console.log(posts);
+    posts.forEach(post=>{
+        console.log(post);
+    })
+}  
