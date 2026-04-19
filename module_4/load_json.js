@@ -60,4 +60,7 @@ const displayPost=(posts)=>{
     posts.forEach(post=>{
         console.log(post);
     })
-}  
+}
+const lordPrint=()=>{
+
+}
